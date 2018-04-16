@@ -7,6 +7,34 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="2*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <ComboBox x:Name="combobox_artikel" Margin="10" Grid.Row="0" Grid.Column="0" ItemsSource="{Binding}"></ComboBox>
+        <Label x:Name="label_artnr" Content="ArtikelNr" Grid.Row="1" Grid.Column="0" FontSize="15" Margin="10,10,0,10"></Label>
+        <TextBox x:Name="textbox_artnr" Grid.Column="1" Grid.Row="1" Margin="10" Text="{Binding ElementName=combobox_artikel, Path=SelectedItem.ArtNr}"></TextBox>
+        <Label x:Name="label_artbez" Content="ArtBez" Grid.Row="2" Grid.Column="0" FontSize="15" Margin="10,10,0,10"></Label>
+        <TextBox x:Name="textbox_artbez" Grid.Column="1" Grid.Row="2" Margin="10" Text="{Binding ElementName=combobox_artikel, Path=SelectedItem.ArtBez}"></TextBox>
+        <Label x:Name="label_bestand" Content="Bestand" FontSize="15" Margin="10,10,0,10" Grid.Row="3"></Label>
+        <TextBox x:Name="textbox_bestand" Grid.Column="1" Grid.Row="3" Margin="10" Text="{Binding ElementName=combobox_artikel, Path=SelectedItem.Bestand}"></TextBox>
+        <Label x:Name="label_preis" Content="Preis" FontSize="15" Margin="10,10,0,10" Grid.Row="4"></Label>
+        <TextBox x:Name="textbox_preis" Margin="10" Grid.Row="4" Grid.Column="1" Text="{Binding ElementName=combobox_artikel, Path=SelectedItem.Verkaufspreis}"></TextBox>
+        <Label x:Name="label_menge" Content="Menge" FontSize="15" Grid.Row="5" Margin="10,5,0,10"></Label>
+        <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="5">
+            <TextBox x:Name="textbox_menge"  Margin="10" Width="35"></TextBox>
+            <Button x:Name="button_kaufen" Content="Kaufen" Margin="100,10,10,10" Width="100" Click="button_kaufen_Click"/>
+        </StackPanel>
+        <TextBlock x:Name="textblock_status" Grid.Column="0" Grid.Row="6" Grid.ColumnSpan="2" FontSize="15"></TextBlock>
         
     </Grid>
 </Window>
